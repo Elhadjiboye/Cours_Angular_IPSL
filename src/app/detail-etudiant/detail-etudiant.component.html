@@ -1,16 +1,18 @@
-<p>detail-etudiant </p>
-{{etudiant | json}}
+
+<div class="container-fluid">
+  <br>
 
 
-<div class="border border-2 border-primary rounded ">
-  <div class="bg-primary m-1 p-2 rounded text-light" >
+<div class=" row border border-2 border-primary rounded  ">
+
+  <div class="bg-primary  p-2 rounded text-light col-12" >
   etudiant {{etudiant?.code}}
   </div>
-  <div>
-    <span> Prenom :</span>
-    <span>{{etudiant?.prenom}}</span><br>
+  <div class="border col-lg  p-2 col-12 ">
+    <span class="ipslLabel"> Prenom :</span>
+    <span class="ipslValue">{{etudiant?.prenom}}</span><br>
 
-    <span> Nom :</span>
+    <span > Nom :</span>
     <span>{{etudiant?.nom}}</span><br>
 
     <span> Adresse :</span>
@@ -23,5 +25,27 @@
     <span>{{etudiant?.telefone}}</span><br>
 
   </div>
+  <div class="border col-lg  p-2 col-12 col-md">
+    <span> Classe:</span>
+    <span>{{etudiant?.classe?.nom}}</span><br>
+
+    <span> Filiére :</span>
+    <span>{{etudiant?.classe?.filiere?.nom}}</span><br>
+
+    <span> Departement :</span>
+    <span>{{etudiant?.classe?.filiere?.dept?.nom}}</span><br>
+  </div>
+
+  <div class="border col-lg d-none d-md-block p-2 col-12 col-md ">
+    <span> Numero :</span>
+    <span>{{carte?.id}}</span><br>
+    <span> Annee Academique :</span>
+    <span>{{getAnneeScolaire()}}  </span><br>
+    <span> Date Delivrance :</span>
+    <span>{{carte?.date_delivrance| date:"YYYY-MM-dd"}}</span><br>
+    <span> Nom :</span>
+    <span>{{carte?.etudiant?.nom}}</span><br>
+  </div>
+</div>
 </div>
 

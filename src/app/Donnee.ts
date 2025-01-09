@@ -1,4 +1,4 @@
-import {Departement, Etudiant} from "./ipsl_modele";
+import {Carte_Etudiant, Departement, Etudiant} from "./ipsl_modele";
 import {Classe} from "./ipsl_modele";
 import {Filiere} from "./ipsl_modele";
 export var  deptDIT: Departement={
@@ -60,7 +60,12 @@ export var Listes_etudiants:Etudiant[]=[etudiantBoye,
     email:"mor@gmail.com",
     telefone:"772123211",
     classe:ing1info
-  },
-
-
+  }
   ]
+export var carteBoye:Carte_Etudiant={
+  id:29101,
+  anneeD_debut:2024,
+  date_delivrance: new Date(Date.parse("2024-10-01")),
+  etudiant:etudiantBoye,
+  payante:false,
+}
