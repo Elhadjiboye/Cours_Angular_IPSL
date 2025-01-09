@@ -1,0 +1,27 @@
+<p>detail-etudiant </p>
+{{etudiant | json}}
+
+
+<div class="border border-2 border-primary rounded ">
+  <div class="bg-primary m-1 p-2 rounded text-light" >
+  etudiant {{etudiant?.code}}
+  </div>
+  <div>
+    <span> Prenom :</span>
+    <span>{{etudiant?.prenom}}</span><br>
+
+    <span> Nom :</span>
+    <span>{{etudiant?.nom}}</span><br>
+
+    <span> Adresse :</span>
+    <span>{{etudiant?.address}}</span><br>
+
+    <span> Email :</span>
+    <span>{{etudiant?.email}}</span><br>
+
+    <span> Telephone :</span>
+    <span>{{etudiant?.telefone}}</span><br>
+
+  </div>
+</div>
+
