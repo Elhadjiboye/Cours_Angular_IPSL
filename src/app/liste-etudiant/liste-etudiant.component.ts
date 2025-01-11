@@ -20,4 +20,23 @@ export class ListeEtudiantComponent {
   etudiants= Listes_etudiants;
   inputype:string="Text";
   inputvalue:String=" RAS";
+
+  styleInformatique={
+    color:'white',
+    "font-weight":"bold",
+    "background-color":"red",
+  }
+  styleCivil={
+    color:'white',
+    "font-weight":"bold",
+    "background-color":"red",
+  }
+
+
+  getEtudiantStyle(filiere: Filiere) {
+    if(filiere.code=='INF'){
+      return this.styleInformatique
+    }else
+    return this.styleCivil;
+  }
 }
