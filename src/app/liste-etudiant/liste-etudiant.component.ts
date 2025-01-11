@@ -20,16 +20,17 @@ export class ListeEtudiantComponent {
   etudiants= Listes_etudiants;
   inputype:string="Text";
   inputvalue:String=" RAS";
+  selectedEtudiant?:Etudiant ;
 
   styleInformatique={
     color:'white',
     "font-weight":"bold",
-    "background-color":"red",
+    "background-color":"black",
   }
   styleCivil={
     color:'white',
     "font-weight":"bold",
-    "background-color":"red",
+    "background-color":"green",
   }
 
 
@@ -38,5 +39,9 @@ export class ListeEtudiantComponent {
       return this.styleInformatique
     }else
     return this.styleCivil;
+  }
+
+  selectEtudiant(e: Etudiant) {
+    this.selectedEtudiant=e;
   }
 }

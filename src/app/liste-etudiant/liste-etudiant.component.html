@@ -2,10 +2,14 @@
   <div class="row">
     <div class="h2">Listes des Etudiants</div>
     <div class="col-12 ">
-      <!--   [style.background-color]="e.classe.filiere.code!=='INF' ? 'rgb(19,218,146)' : 'rgb(255,218,146)' "           [ngStyle]="styleInformatique"-->
+      <!--   [style.background-color]="e.classe.filiere.code!=='INF' ? 'rgb(19,218,146)' : 'rgb(255,218,146)' "           [ngStyle]="styleInformatique"
+                 [ngStyle]="getEtudiantStyle(e.classe.filiere)"
+-->
       <div *ngFor="let e of etudiants"
 
-           [ngStyle]="getEtudiantStyle(e.classe.filiere)"
+           [ngStyle]="selectedEtudiant?.code==e.code ? styleInformatique:styleCivil"
+
+           (mouseover)="selectEtudiant(e)"
 
            class=" border border-2 border-primary rounded mt-2 ps-4 pt-2 pb-5">
 
@@ -32,7 +36,7 @@
 
         <input [type]="inputype" [value]="inputvalue"/><br>
 
-        <div style="float: right" class="mx-2" >
+        <div style="float: right" class="mx-2" *ngIf="selectedEtudiant?.code==e.code" >
           <button class="btn btn-link mx-2 " [disabled]= "e.classe.filiere.code!=='INF' " > Details</button>
           <button class="btn btn-primary ms-2" [disabled]= "e.classe.filiere.code!=='INF' "> Modifier</button>
           <button class="btn btn-outline-danger ms-2" [disabled]= "e.classe.filiere.code!=='INF' "> Supprimer</button>
