@@ -16,10 +16,15 @@ export var  deptDGM: Departement={
 
 export var ListeDept: Departement[]=[deptDIT,deptDGC,deptDGM];
 
-export var ing1info: Classe={
+export var ing3info: Classe={
   code:"ING3",
   nom:"Ing 3 Informatique",
   filiere:{code:"INF",nom:"Informatique",dept:deptDIT}
+}
+export var ing3Civil: Classe={
+  code:"ING3",
+  nom:"Ing 3 Civil",
+  filiere:{code:"Civil",nom:"Genie Civil",dept:deptDGC}
 }
 
 export var etudiantBoye:Etudiant={
@@ -29,7 +34,7 @@ export var etudiantBoye:Etudiant={
   address:"Keur Mbaye Fall",
   email:"boyeelhadjiabdou@gmail.com",
   telefone:"772271171",
-  classe:ing1info
+  classe:ing3Civil
 }
 
 
@@ -41,7 +46,7 @@ export var Listes_etudiants:Etudiant[]=[etudiantBoye,
     address:"Thies",
     email:"sylla@gmail.com",
     telefone:"778892002",
-    classe:ing1info
+    classe:ing3info
   },
   {
     code:"P31-12",
@@ -50,7 +55,7 @@ export var Listes_etudiants:Etudiant[]=[etudiantBoye,
     address:"Diourbel",
     email:"mame@gmail.com",
     telefone:"771213221",
-    classe:ing1info
+    classe:ing3Civil
   },
   {
     code:"P31-13",
@@ -59,7 +64,7 @@ export var Listes_etudiants:Etudiant[]=[etudiantBoye,
     address:"Louga",
     email:"mor@gmail.com",
     telefone:"772123211",
-    classe:ing1info
+    classe:ing3info
   }
   ]
 export var carteBoye:Carte_Etudiant={

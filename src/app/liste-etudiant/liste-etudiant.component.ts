@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {JsonPipe, NgForOf} from "@angular/common";
-import {Etudiant} from "../ipsl_modele";
+import {JsonPipe, NgForOf, NgIf , CommonModule} from "@angular/common";
+import {Etudiant, Filiere} from "../ipsl_modele";
 import {Listes_etudiants} from "../Donnee";
 
 @Component({
@@ -8,11 +8,16 @@ import {Listes_etudiants} from "../Donnee";
   standalone: true,
   imports: [
     NgForOf,
-    JsonPipe
+    JsonPipe,
+    NgIf,
+    CommonModule
+
   ],
   templateUrl: './liste-etudiant.component.html',
   styleUrl: './liste-etudiant.component.scss'
 })
 export class ListeEtudiantComponent {
   etudiants= Listes_etudiants;
+  inputype:string="Text";
+  inputvalue:String=" RAS";
 }
