@@ -1,1 +1,51 @@
-<p>liste-etudiant works!</p>
+<div  class="container">
+  <div class="row">
+    <div class="h2">Listes des Etudiants</div>
+    <div class="col-12 ">
+      <div *ngFor="let e of etudiants" class=" border border-2 border-primary rounded m- pt-2 pb-5  ">
+        <div class="m-2">
+          <span> Etudiant: </span>
+          <span>{{e.code}}</span>
+        </div>
+
+        <div class="m-2">
+          <span> Prenom: </span>
+          <span>{{e.prenom}}</span>
+        </div>
+        <div class="m-2">
+          <span> Nom: </span>
+          <span>{{e.nom}}</span>
+        </div>
+        <div class="m-2">
+          <span> Adresse: </span>
+          <span>{{e.address}}</span>
+        </div>
+        <div class="m-2">
+          <span> Telephone: </span>
+          <span>{{e.telefone}}</span>
+        </div>
+        <div class="m-2">
+          <span> Email: </span>
+          <span>{{e.email}}</span>
+        </div>
+        <div class="m-2">
+          <span> Classe: </span>
+          <span>{{e.classe.nom}}</span>
+        </div>
+        <br>
+        <div style="float: right">
+          <button class="btn btn-link mx-2"> Details</button>
+          <button class="btn btn-primary ms-2"> Modifier</button>
+          <button class="btn btn-outline-danger ms-2"> Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<div></div>
