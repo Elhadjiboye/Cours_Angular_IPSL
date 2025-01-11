@@ -1,0 +1,45 @@
+
+<table class="table border border-2 m-2 p-2 text-center rounded  ">
+  <thead class="border border-2 border">
+  <tr >
+    <th scope="col">code</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Adresse</th>
+    <th scope="col">Telephone</th>
+    <th scope="col">Email</th>
+    <th scope="col">Code_Classe</th>
+    <th scope="col">Actions</th>
+
+  </tr>
+  </thead>
+  <tbody class="border border-2">
+  <tr *ngFor="let i of etudiants  let e=index"
+      [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+      (click)="selectLine(e)"
+  >
+    <th scope="row" [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.code }}</th>
+    <td [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.nom }}</td>
+    <td [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.prenom }}</td>
+    <td [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.address }}</td>
+    <td [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.telefone }}</td>
+    <td [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.email }}</td>
+    <td [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+        (click)="selectLine(e)">{{ i.classe.code }}</td>
+    <div style="float: right" class="mx-2"  [ngStyle]="mergeStyles(stylePair(e,i), selectedLine(e))"
+         (click)="selectLine(e)"
+         *ngIf="selectedIndex===e"   >
+      <button class="btn btn-link mx-2 "   > Details</button>
+      <button class="btn btn-primary ms-2" > Modifier</button>
+      <button class="btn btn-outline-danger ms-2"  > Supprimer</button>
+    </div>
+  </tr>
+
+  </tbody>
+</table>
