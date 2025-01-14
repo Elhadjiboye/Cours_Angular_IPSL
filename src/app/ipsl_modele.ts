@@ -1,38 +1,39 @@
 export interface Departement {
-  code:String;
-  nom:String;
-  description?:String;
+  code:string;
+  nom:string;
+  description?:string;
 }
 export interface Filiere{
-  code:String;
-  nom:String;
-  description?:String;
+  code:string;
+  nom:string;
+  description?:string;
   dept:Departement;
 }
 export interface Classe {
-  code:String;
-  nom:String;
-  description?:String;
+  code:string;
+  nom:string;
+  description?:string;
   filiere:Filiere;
 }
 export interface Etudiant{
-  code:String;
-  nom:String;
-  prenom:String;
-  address:String;
-  telefone:String;
-  email:String;
+  code:string;
+  nom:string;
+  prenom:string;
+  address:string;
+  telefone:string;
+  email:string;
   classe:Classe;
 }
 export interface EtudiantDTO{
-  code:String;
-  nom:String;
-  prenom:String;
-  address:String;
-  telefone:String;
-  email:String;
-  CodeClasse:String;
-  CodeDepartement:String;
+  code:string;
+  nom:string;
+  prenom:string;
+  address:string;
+  telefone:string;
+  email:string;
+  CodeClasse:string;
+  CodeDepartement:string;
+  CodeFiliere:string;
 }
 export interface Carte_Etudiant{
   id:Number;

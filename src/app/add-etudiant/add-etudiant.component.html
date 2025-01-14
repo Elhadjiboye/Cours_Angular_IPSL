@@ -1,37 +1,142 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
-  <form class="border border-2 p-4 text-center bg-light rounded " style="width: 800px;">
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputCode" placeholder="code" >
-      <label for="floatingInputCode">Code</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputName" placeholder="nom">
-      <label for="floatingInputName">Nom</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputprenom" placeholder="prenom">
-      <label for="floatingInputprenom">Prenom</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Adresse Email</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputadresse" placeholder="adresse">
-      <label for="floatingInputadresse">Adresse</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputtelephone" placeholder="telephone">
-      <label for="floatingInputtelephone">Telephone</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputCodeClasse" placeholder="code_classe">
-      <label for="floatingInputCodeClasse">Code Classe</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputcode_dept" placeholder="code_departement">
-      <label for="floatingInputcode_dept">Code Departement</label>
-    </div>
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-  </form>
+<div class="h2 text-center text-lg-center"> Formulaire</div>
+<div class="d-flex justify-content-center align-items-center ">
+    <form #etudiantform="ngForm" class="border border-2 p-4 text-center bg-light rounded "
+          style="width: 800px;"
+          (ngSubmit)="enregistrer()"
+    >
+        {{etudiantform.value|json }}
+        <!--div>
+            toucher={{etudiantform.touched}}<br>
+            untouched={{etudiantform.untouched}}<br>
+            pristine={{etudiantform.pristine}}<br>
+            dirty={{etudiantform.dirty}}<br>
+            errors={{etudiantform.errors}}<br>
+            valid={{etudiantform.valid}}<br>
+            invalid={{etudiantform.invalid}}<br>
+
+        </div-->
+
+        <div class="form-floating mb-3">
+            <input type="text" name="code" [(ngModel)]="etudiant.code" class="form-control"
+                   id="floatingInputCode" placeholder="code"
+                   #code=ngModel
+                   [class.is-valid]="code.valid && code.touched && code.dirty"
+                   [class.is-invalid]="code.invalid && code.touched "
+                   required
+
+
+            >
+            <label for="floatingInputCode">Code</label>
+            <!--div>
+                touched={{code.touched }}
+            </div-->
+
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="nom" [(ngModel)]="etudiant.nom" class="form-control"
+                   id="floatingInputName" placeholder="nom"
+                   #nom=ngModel
+                   [class.is-valid]="nom.valid && nom.touched && nom.dirty"
+                   [class.is-invalid]="nom.invalid && nom.touched "
+                   required
+            >
+            <label for="floatingInputName">Nom</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="prenom" [(ngModel)]="etudiant.prenom"
+                   class="form-control" id="floatingInputprenom"
+                   placeholder="prenom"
+                   #prenom=ngModel
+                   [class.is-valid]="prenom.valid && prenom.touched && prenom.dirty"
+                   [class.is-invalid]="prenom.invalid && prenom.touched "
+                   required>
+            <label for="floatingInputprenom">Prenom</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" name="email" [(ngModel)]="etudiant.email"
+                   class="form-control" id="floatingInput"
+                   placeholder="name@example.com"
+                   #mail=ngModel
+                   [class.is-valid]="mail.valid && mail.touched && mail.dirty"
+                   [class.is-invalid]="mail.invalid && mail.touched "
+
+                   required>
+            <label for="floatingInput">Adresse Email</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="adresse" [(ngModel)]="etudiant.address"
+                   class="form-control" id="floatingInputadresse"
+                   placeholder="adresse"
+                   #adresse=ngModel
+                   [class.is-valid]="adresse.valid && adresse.touched && adresse.dirty"
+                   [class.is-invalid]="adresse.invalid && adresse.touched "
+                   required>
+            <label for="floatingInputadresse">Adresse</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="telephone" [(ngModel)]="etudiant.telefone"
+                   class="form-control" id="floatingInputtelephone"
+                   placeholder="telephone"
+                   #telephone=ngModel
+                   [class.is-valid]="telephone.valid && telephone.touched && telephone.dirty"
+                   [class.is-invalid]="telephone.invalid && telephone.touched "
+                   required>
+            <label for="floatingInputtelephone">Telephone</label>
+        </div>
+        <div class="form-floating">
+            <select class="form-select" name="code_departement"
+                    required [(ngModel)]="etudiant.CodeDepartement"
+                    (change)="listefilier()" id="floatingSelectDept"
+                    aria-label="Floating label select example"
+                    #depart=ngModel
+                    [class.is-valid]="depart.valid && depart.touched && depart.dirty"
+                    [class.is-invalid]="depart.invalid && depart.touched "
+
+            >
+                <option value="">Choisir un departement</option>
+
+                <option *ngFor="let dept of tabDepartement" [value]="dept.code">{{dept.nom}}</option>
+
+            </select>
+            <label for="floatingSelectFil">Departement</label>
+
+            <div class="form-floating">
+                <select class="form-select"
+                        required
+                        #classe=ngModel
+                        [class.is-valid]="classe.valid && classe.touched && classe.dirty"
+                        [class.is-invalid]="classe.invalid && classe.touched "
+                        name="code_classe" [(ngModel)]="etudiant.CodeClasse"
+                        id="floatingSelectclasse" aria-label="Floating label select example">
+                    <option selected>Choisir une classe</option>
+                    <option value="ING1">ING1</option>
+                    <option value="ING2">ING2</option>
+                    <option value="ING3">ING3</option>
+                </select>
+                <label for="floatingSelectclasse">Classe</label>
+            </div>
+
+        </div>
+        <div class="form-floating">
+            <select  name="code_classe" [(ngModel)]="etudiant.CodeFiliere"
+                     required class="form-select" id="floatingSelectFil"
+                     aria-label="Floating label select example"
+                     #filiere=ngModel
+                     [class.is-valid]="filiere.valid && filiere.touched && filiere.dirty"
+                     [class.is-invalid]="filiere.invalid && filiere.touched ">
+                <option value="">Choisir une filiere</option>
+
+                <option *ngFor="let fil of  listesFilieres" [value]="fil.code">{{fil.nom}}</option>
+
+            </select>
+            <label for="floatingSelectFil">Filiere</label>
+        </div>
+        <button type="submit" class="btn btn-success mt-3 mx-2"
+                [disabled]="etudiantform.invalid"
+
+        >Ajouter</button>
+        <button type="reset" class="btn btn-danger mt-3 mx-2"
+        (click)="annuler()">Anuller</button>
+
+    </form>
 </div>
