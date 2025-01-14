@@ -2,16 +2,61 @@
 @import 'ipslscssvar';
 @import'../node_modules/bootstrap/scss/bootstrap';
 
-.active{
-     color: rgb(208, 255, 0);
-     background-color: black;
+$evenRowColor:$success;
+$oddRowColor:$info;
+$evenRowColor:$dark;
+$oddRowColor:$light;
+
+.rowTable{
+  @extend .p-2;
+  @extend .border-top;
+  @extend .border-2;
+  font-size: $tableRowfont_size;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
+.ipslTable{
+  // @extend .table;
+  width: 100%;
+  .even{
+    @extend .rowTable;
+    @extend .text-light;
+    background-color: $evenRowColor;
+    font-style:italic;
+    &:hover{
+      background-color: lighten($evenRowColor,10);
+    }
+  }
+  .odd{
+    @extend .rowTable;
+    @extend .text-dark;
+    background-color:$oddRowColor ;
+    &:hover{
+      background-color: darken($oddRowColor,10);
+    }
+  }
+}
 
+.selectedRow{
+  @extend .rowTable;
+  @extend .bg-primary;
+  @extend .text-light;
+
+}
+.active{
+  color: rgb(208, 255, 0);
+  background-color: black;
+}
 .ipslValue{
   font-size: 12px;
   font-weight: bold;
+  background-color:black;
 }
+
 .ipslLabel{
   @extend .ipslValue;
   @extend .text-primary;

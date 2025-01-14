@@ -11,7 +11,7 @@ import {Listes_etudiants} from "../Donnee";
     NgForOf,
     CommonModule
   ],
-  templateUrl: './liste-etudiant2.component.html',
+  templateUrl: './liste-etudiant2.component_.html',
   styleUrl: './liste-etudiant2.component.scss'
 })
 export class ListeEtudiant2Component {
