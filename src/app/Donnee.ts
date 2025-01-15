@@ -1,4 +1,4 @@
-import {Carte_Etudiant, Departement, Etudiant} from "./ipsl_modele";
+import {Carte_Etudiant, Departement, Etudiant, MenuResto} from "./ipsl_modele";
 import {Classe} from "./ipsl_modele";
 import {Filiere} from "./ipsl_modele";
 export var  deptDIT: Departement={
@@ -74,3 +74,37 @@ export var carteBoye:Carte_Etudiant={
   etudiant:etudiantBoye,
   payante:false,
 }
+
+export const CATEGORIES=["vegetarien","fastfood","senegalais","africain"]
+export var MENUs:MenuResto[]=[
+  {
+    code:"RAP",
+    nom:"Riz au Poisson",
+    prix:2000,
+    categorie:CATEGORIES[2]
+  },
+  {
+    code:"MV",
+    nom:"Mafe viande",
+    prix:3000,
+    categorie:CATEGORIES[2]
+  },
+  {
+    code:"BG",
+    nom:"Burger",
+    prix:1500,
+    categorie:CATEGORIES[1]
+  },
+  {
+    code:"AT",
+    nom:"Athiéké",
+    prix:2500,
+    categorie:CATEGORIES[3]
+  },
+  {
+    code:"SD",
+    nom:"Salade et Crudité",
+    prix:3500,
+    categorie:CATEGORIES[0]
+  }
+]

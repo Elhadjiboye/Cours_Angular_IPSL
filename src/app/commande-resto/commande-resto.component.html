@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center align-items-center ">
+  <form  class="border border-2 p-4 text-center bg-light rounded "
+         style="width: 800px;"
+         [formGroup]="commandeForm"
+         (ngSubmit)="commander()"
+
+  >
+
+    <span class="h2 text-center text-lg-center"> Formulaire Commande</span>
+    <br>
+    <br>
+    <div class="form-floating mb-3">
+      <input type="text" name="prenom"
+             formControlName="prenom"
+             class="form-control" id="floatingInputprenom"
+             placeholder="prenom"
+             required>
+      <label for="floatingInputprenom">Prenom</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" name="nom" formControlName="nom" class="form-control"
+             id="floatingInputName" placeholder="nom"
+             required
+      >
+      <label for="floatingInputName">Nom</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" name="adresse"
+             formControlName="adresse"
+             class="form-control" id="floatingInputadresse"
+             placeholder="adresse"
+             required>
+      <label for="floatingInputadresse">Adresse</label>
+    </div>
+
+    <div class="form-floating mb-3 ">
+      <input type="text" name="telephone"
+             formControlName="telephone"
+             class="form-control" id="floatingInputtelephone"
+             placeholder="telephone"
+             required>
+      <label for="floatingInputtelephone">Telephone</label>
+    </div>
+
+    <div formArrayName="commandes" >
+      <div class=" border border-2 mb-3 p-2 bg-primary " >
+        <span class="h2"> Menu du Jour</span>
+        <div *ngIf="this.Somme!=0" class=" h5 text-start">
+          Prix Total = {{this.Somme}} FCA
+        </div>
+      </div>
+
+      <ng-container *ngFor="let menu of getMenu.controls; let i=index;" [formGroupName]="i">
+        <div (click)="selectionneMenu(i)"   [class.bg-secondary]="this.getMenu.controls[i].get('selected')?.value==true" class="border border-2 mb-3 p-2"  >
+          Prix: {{this.getMenu.controls[i].get('prixMenu')?.value}}<br>
+          Nom: {{this.getMenu.controls[i].get('nomMenu')?.value}}<br>
+          Categorie: {{this.getMenu.controls[i].get('categorieMenu')?.value}}
+        </div>
+      </ng-container>
+
+
+
+    </div>
+
+    <button type="submit" class="btn btn-secondary mt-3 mx-2"
+
+
+    >Commander</button>
+    <button type="reset" class="btn btn-danger mt-3 mx-2"
+            (click)="annuler()"       >Anuller</button>
+
+  </form>
+</div>

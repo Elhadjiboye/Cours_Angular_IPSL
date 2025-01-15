@@ -42,3 +42,12 @@ export interface Carte_Etudiant{
   etudiant:Etudiant;
   payante:Boolean;
 }
+
+export interface MenuResto{
+  code:string;
+  nom:string;
+  prix:number;
+  description?:string;
+  categorie:string;
+
+}
